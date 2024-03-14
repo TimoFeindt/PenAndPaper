@@ -1,0 +1,69 @@
+.charCombat {
+  display: flex;
+  flex-direction: column;
+}
+
+.charCombat__box {
+  display: flex;
+  flex-direction: row;
+}
+
+.charCombat__icon {
+  position: relative;
+  margin-right: 1rem;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  background-color: greenyellow;
+}
+
+.charCombat__total {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  width: 3rem;
+}
+
+.charCombat__singles {
+  display: flex;
+  align-items: center;
+}
+
+.charCombat__singlesBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.charCombat__singlesBox--value {
+  width: 2.5rem;
+  border: 2px solid black;
+}
+
+.charCombat__singlesBox--plus {
+  width: 1rem;
+}
+
+.charCombat___singlesValue {
+  text-align: center;
+}
+
+.charCombat__container {
+  display: flex;
+}
+
+.charCombat__CmArea {
+  display: flex;
+  flex-direction: row;
+}
+
+.charCombat__BaseAttackBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 5rem;
+  background-color: aqua;
+}
