@@ -1,0 +1,22 @@
+.charDesc {
+  width: 100%;
+}
+
+.charDesc__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.charDesc__box {
+  display: flex;
+  flex-direction: row;
+  margin: .25rem;
+}
+
+.charDesc__name {
+  font-weight: 800;
+}
+
+.charDesc__value {
+  margin-left: .25rem;
+}

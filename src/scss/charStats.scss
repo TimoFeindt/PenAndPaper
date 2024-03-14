@@ -1,0 +1,90 @@
+.charStats {
+    &__container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    &__box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: brown;
+        width: 40%;
+        padding: .5rem;
+        margin: .5rem;
+    }
+    &__name {
+        font-weight: 800;
+    }
+    &__values {
+        display: flex;
+    }
+    &__base {
+        color: aliceblue;
+        margin-top: -.5rem;
+    }
+    &__mod {
+        margin-top: .25rem;
+    }
+
+    &__button {
+        background-color: none;
+        border: none;
+        padding: 1rem;
+    }
+    &__buttonIcon {
+        font-size: 32px;
+        font-weight: 800;
+    }
+
+    &__temp {
+        display: flex;
+        &--hp {
+            color: red;
+        }
+    }
+    &__tempInput {
+        width: 32px;
+        border: none;
+        background-color: transparent;
+    }
+    input[type=number]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+    &__headlines {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    &__h3 {
+        font-size: 32px
+    }
+    &__HpSection {
+
+    }
+    &__HpBar {
+        position: relative;
+        height: 1.5rem;
+        width: 9.5rem;
+        &--outer {
+            position: absolute;
+            height: 1.5rem;
+            width: 10rem;
+            border: .25rem solid black;
+        }
+        &--inner {
+            position: absolute;
+            top: .25rem;
+            left: .25rem;
+            height: 1rem;
+            background-color: red;
+        }
+        &--overheal {
+            position: absolute;
+            top: .25rem;
+            left: .25rem;
+            height: 1rem;
+            background-color: blue;
+        }
+    }
+}

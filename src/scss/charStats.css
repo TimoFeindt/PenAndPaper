@@ -1,0 +1,100 @@
+.charStats__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.charStats__box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: brown;
+  width: 40%;
+  padding: .5rem;
+  margin: .5rem;
+}
+
+.charStats__name {
+  font-weight: 800;
+}
+
+.charStats__values {
+  display: flex;
+}
+
+.charStats__base {
+  color: aliceblue;
+  margin-top: -.5rem;
+}
+
+.charStats__mod {
+  margin-top: .25rem;
+}
+
+.charStats__button {
+  background-color: none;
+  border: none;
+  padding: 1rem;
+}
+
+.charStats__buttonIcon {
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.charStats__temp {
+  display: flex;
+}
+
+.charStats__temp--hp {
+  color: red;
+}
+
+.charStats__tempInput {
+  width: 32px;
+  border: none;
+  background-color: transparent;
+}
+
+.charStats input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.charStats__headlines {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.charStats__h3 {
+  font-size: 32px;
+}
+
+.charStats__HpBar {
+  position: relative;
+  height: 1.5rem;
+  width: 9.5rem;
+}
+
+.charStats__HpBar--outer {
+  position: absolute;
+  height: 1.5rem;
+  width: 10rem;
+  border: .25rem solid black;
+}
+
+.charStats__HpBar--inner {
+  position: absolute;
+  top: .25rem;
+  left: .25rem;
+  height: 1rem;
+  background-color: red;
+}
+
+.charStats__HpBar--overheal {
+  position: absolute;
+  top: .25rem;
+  left: .25rem;
+  height: 1rem;
+  background-color: blue;
+}
