@@ -1,5 +1,4 @@
 <template>
-  <h1>{{ $store.state.test }}</h1>
   <h1>CharacterBogen</h1>
   <div class="baselayout">
     <char-description />
@@ -59,4 +58,5 @@ export default {
 
 <style>
   @import './scss/base.css';
+  @import './scss/colors.css';
 </style>

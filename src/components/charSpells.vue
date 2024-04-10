@@ -1,8 +1,8 @@
 <template>
-    <section class="charSpells">
+    <section class="charSpells basicBoxLayout">
         <h1>Spell-Liste</h1>
         <h2>USE SLOTS!</h2>
-        <ul>
+       <!--  <ul>
             <li v-for="spell in spells" :key="spell.spellName"> 
                 <div>{{ spell.spellSchool }}</div> 
                 <div>{{ spell.spellRank }}</div> 
@@ -16,7 +16,7 @@
                 <div>{{ spell.spellRes }}</div> 
                 <div>{{ spell.spellCastTime }}</div> 
             </li>
-        </ul>
+        </ul> -->
     </section>
 </template>
   
@@ -91,8 +91,11 @@
                         spellCastTime: '1 Standard-Aktion',
                         spellSchool: 'Illusion (Einbildung,Fehlgefühl)'
                     },
-                }
+                },
             }
+        },
+        methods: {
+            
         }
     }
 </script>

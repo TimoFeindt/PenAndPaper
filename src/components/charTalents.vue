@@ -1,5 +1,5 @@
 <template>
-    <section class="charTalents">
+    <section class="charTalents basicBoxLayout">
         <h1>Talents</h1>
         <ul>
             <li v-for="talent in talents" :key="talent.name">

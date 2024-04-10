@@ -1,3 +1,5 @@
+@import './layout.css';
+
 /* RESET */
 * {
     font-size: 16px;
@@ -31,52 +33,3 @@ button {
     font-size: 2.5rem;
 }
 
-/* LAYOUT */
-.baselayout {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: auto;
-    gap: 1rem;
-    grid-template-areas: 
-        "skills skills desc stats combat talents"
-        "skills skills desc stats combat talents"
-        "inv inv weapon weapon weapon weapon"
-        "spells spells spells spells spells spells"
-    ;
-}
-.charDesc {
-    grid-area: desc;
-    background-color: royalblue;
-}
-.charSkills {
-    grid-area: skills;
-    background-color: burlywood;
-}
-.charStats {
-    grid-area: stats;
-    background-color: greenyellow;
-}
-.charSpells {
-    grid-area: spells;
-    background-color: red;
-}
-.charHp {
-    grid-area: hp;
-    background-color: plum;
-}
-.charCombat {
-    grid-area: combat;
-    background-color: indianred;
-}
-.charWeapons {
-    grid-area: weapon;
-    background-color: goldenrod;
-}
-.charInv {
-    grid-area: inv;
-    background-color: blueviolet;
-}
-.charTalents {
-    grid-area: talents;
-    background-color: khaki;
-}

@@ -1,5 +1,5 @@
 <template>
-    <section class="charWeapons">
+    <section class="charWeapons basicBoxLayout">
         <h3> Weapons</h3>
         
         <ul>

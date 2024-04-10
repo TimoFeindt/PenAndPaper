@@ -1,5 +1,5 @@
 <template>
-    <section class="charCombat">
+    <section class="charCombat basicBoxLayout">
         <h3>Combat</h3>
         <!-- full Armor -->
         <span>Full ArmorClass</span>

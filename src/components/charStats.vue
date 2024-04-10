@@ -1,5 +1,5 @@
 <template>
-    <section class="charStats">
+    <section class="charStats basicBoxLayout">
         <div class="charStats__headlines">
             <h3 class="charStats__h3">Base Stats</h3>
             <div>Attribute:</div>
@@ -104,17 +104,20 @@
             </div>
         </div>
         
-        <section class="charStats__HPsection">
-            <div>Max-HP: {{ maxHp }} : {{ hp + tempHp }} </div>
-            <div class="charStats__temp charStats__temp--hp">      
-                <button @click="changeHP('decrease')">-</button>
-                <button @click="changeHP('increase')">+</button>
-                <div> Temp Hp: {{ tempHp }}</div>
+        <section class="charStats__HpSection">
+            <div class="charStats__HpCounter">
+                <h6 class="charStats__maxHp">HP: {{ hp + tempHp }} / {{ maxHp }}</h6>
+                <div>
+                    <input type="number" placeholder="DMG taken" v-model="hpValue">
+                    <button @click="changeHP('decrease')">DMG</button>    
+                    <button @click="changeHP('increase')">Heal</button>
+                </div> 
             </div>
+            
             <div class="charStats__HpBar">
                 <div class="charStats__HpBar--outer"></div>
-                <div class="charStats__HpBar--inner" :style="{ width: hpScale + '%'}"></div>
-                <div class="charStats__HpBar--overheal" :style="{ width: tempHpScale + '%'}"></div>
+                <div class="charStats__HpBar--inner" :style="{ width: `${healthPercentage}` + '%'}"></div>
+                <div class="charStats__HpBar--overheal" :style="{ width: `${tempHealthPercentage}` + '%'}"></div>
             </div>
             
         
@@ -137,40 +140,11 @@
             return {
                 maxHp: 25,
                 hp: 25,
+                hpValue: 0,
                 tempHp: 0,
                 tempHPAdd: 0,
                 initiative: 2,
-                hpScale: 100,
-                tempHpScale: 0,
             };
-        },
-        watch: {
-            hp: {
-                handler(oldValue, newValue){
-                    const fullLife = 100 / this.maxHp 
-                    if (newValue > oldValue) {
-                        this.hpScale = this.hpScale - fullLife 
-                        console.log(fullLife)
-                        console.log(this.hpScale)
-                    } else {
-                        this.hpScale = this.hpScale + fullLife 
-                    }
-                }
-            },
-            tempHp: {
-                handler(oldValue, newValue){
-                    const overHeal = 100 / this.maxHp 
-                    console.log(overHeal);
-                    if (newValue > oldValue) {
-                        this.tempHpScale = this.tempHpScale - overHeal 
-                        console.log(overHeal)
-                        console.log(this.tempHpScale)
-                    } else {
-                        this.tempHpScale = this.tempHpScale + overHeal 
-                    }
-                }
-            },
-            
         },
         computed: {
             ...mapState('attributes', [
@@ -189,6 +163,13 @@
                 'wisMod',
                 'chaMod',
             ]),
+
+            healthPercentage() {
+                return Math.min((this.hp / this.maxHp) * 100, 100);
+            },
+            tempHealthPercentage() {
+                return Math.min((this.tempHp / this.maxHp) * 100, 100);
+            },
         },
         methods: {
             ...mapMutations('attributes', [
@@ -196,19 +177,29 @@
             ]),
             changeHP(value) {
                 if(value === 'decrease') {
+                    if(this.hp === 0) {
+                        return
+                    }
                     if (this.tempHp != 0) {
-                        this.tempHp--
+                        if(this.tempHp >= this.hpValue) {
+                            this.tempHp = this.tempHp - this.hpValue
+                            return
+                        }
+                        this.hp = this.hp + (this.tempHp - this.hpValue)
+                        this.tempHp = 0
                     } else {
-                        this.hp--
+                        this.hp = this.hp - this.hpValue;
                     }
                 } else {
-                    if (this.hp <= (this.maxHp - 1) ) {
-                        this.hp++
-                    } 
+                    if((this.hp + this.hpValue) >= this.maxHp) {
+                        this.hp = this.maxHp
+                        return
+                    }
+                    this.hp = this.hp + this.hpValue;
                 }
             },
             updateTempHP() {
-                this.tempHp = this.tempHp + this.tempHPAdd
+                this.tempHp = this.tempHp + this.tempHPAdd;
             }
         },
     }

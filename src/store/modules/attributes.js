@@ -3,32 +3,32 @@ const attributes = {
     state: {
         strength: {
             name: 'strength',
-            base: 12,
+            base: 10,
             mod: 0 ,
         },
         dexterity: {
             name: 'dexterity',
-            base: 14,
+            base: 10,
             mod: 0,
         },
         constitution: {
             name: 'constitution',
-            base: 16,
+            base: 10,
             mod: 0,
         },
         intelligence: {
             name: 'intelligence',
-            base: 18,
+            base: 10,
             mod: 0,
         },
         wisdom: {
             name: 'wisdom',
-            base: 20,
+            base: 10,
             mod: 0,
         },
         charism: {
             name: 'charism',
-            base: 12,
+            base: 10,
             mod: 0,
         },
     },

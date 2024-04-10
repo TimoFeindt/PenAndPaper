@@ -1,3 +1,5 @@
+@import './colors.scss';
+
 .charStats {
     &__container{
         display: flex;
@@ -8,7 +10,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-color: brown;
+        background-color: #DED0B2;
         width: 40%;
         padding: .5rem;
         margin: .5rem;
@@ -58,33 +60,40 @@
     }
     &__h3 {
         font-size: 32px
+    
+    
     }
     &__HpSection {
-
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    &__HpCounter {
+        display: flex;
     }
     &__HpBar {
         position: relative;
-        height: 1.5rem;
-        width: 9.5rem;
+        height: 2rem;
+        width: 15rem;
         &--outer {
             position: absolute;
-            height: 1.5rem;
-            width: 10rem;
-            border: .25rem solid black;
+            height: 1.8rem;
+            width: 15.1rem;
+            border: .1rem solid $brightBlack;
         }
         &--inner {
             position: absolute;
-            top: .25rem;
-            left: .25rem;
-            height: 1rem;
-            background-color: red;
+            top: .05rem;
+            left: .05rem;
+            height: 1.7rem;
+            background-color: $healthyGreen;
         }
         &--overheal {
             position: absolute;
-            top: .25rem;
-            left: .25rem;
-            height: 1rem;
-            background-color: blue;
+            top: .05rem;
+            left: .05rem;
+            height: 1.7rem;
+            background-color: $bonusBlue;
         }
     }
 }

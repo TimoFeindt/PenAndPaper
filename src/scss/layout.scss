@@ -1,0 +1,57 @@
+@import './colors.scss';
+
+$layoutBorder: (
+    border: .25rem solid $darkBasicBeige,
+    border-radius: .75rem,
+);
+
+body {
+    background: $brightBasicBeige;
+}
+
+/* LAYOUT */
+.baselayout {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 1rem;
+    grid-template-areas: 
+        "skills skills desc stats combat talents"
+        "skills skills desc stats combat talents"
+        "inv inv weapon weapon weapon weapon"
+        "spells spells spells spells spells spells"
+    ;
+}
+.charDesc {
+    grid-area: desc;
+}
+.charSkills {
+    grid-area: skills;
+}
+.charStats {
+    grid-area: stats;
+}
+.charSpells {
+    grid-area: spells;
+}
+.charHp {
+    grid-area: hp;
+}
+.charCombat {
+    grid-area: combat;
+}
+.charWeapons {
+    grid-area: weapon;
+}
+.charInv {
+    grid-area: inv;
+}
+.charTalents {
+    grid-area: talents;
+}
+
+.basicBoxLayout {
+    background: $basicBeige;
+    border: map-get($layoutBorder, border);
+    border-radius: map-get($layoutBorder, border-radius);
+}

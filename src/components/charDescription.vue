@@ -1,5 +1,5 @@
 <template>
-    <section class="charDesc">
+    <section class="charDesc basicBoxLayout">
         <h3> Ich bin die Character Beschreibung & Leben & Bewegung </h3>
         <div class="charDesc__container">
             <div class="charDesc__container--innerOne">

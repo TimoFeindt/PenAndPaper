@@ -1,5 +1,5 @@
 <template>
-    <section class="charInv">
+    <section class="charInv basicBoxLayout">
         <h1>Inventar</h1>
         <ul>
             <li v-for="item in items" :key="item.name">
