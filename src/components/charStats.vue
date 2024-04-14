@@ -11,7 +11,9 @@
                         {{ strength.base }}
                     </div>
                     <span class="font--huge">/</span>
-                    <div class="charStats__mod font--huge">
+                    <div 
+                        class="charStats__mod font--huge"
+                        :class="[ strMod < 0 ? 'dangerRed' : '']">
                         {{ strMod }}
                     </div> 
                 </div>
@@ -28,7 +30,9 @@
                         {{ dexterity.base }}
                     </div>
                     <span class="font--huge">/</span>
-                    <div class="charStats__mod font--huge">
+                    <div 
+                        class="charStats__mod font--huge"
+                        :class="[ dexMod < 0 ? 'dangerRed' : '']">
                         {{ dexMod }}
                     </div> 
                 </div>
@@ -44,7 +48,9 @@
                         {{ constitution.base }}
                     </div>
                     <span class="font--huge">/</span>
-                    <div class="charStats__mod font--huge">
+                    <div 
+                        class="charStats__mod font--huge"
+                        :class="[ conMod < 0 ? 'dangerRed' : '']">
                         {{ conMod }}
                     </div> 
                 </div>
@@ -60,7 +66,9 @@
                         {{ intelligence.base }}
                     </div>
                     <span class="font--huge">/</span>
-                    <div class="charStats__mod font--huge">
+                    <div 
+                        class="charStats__mod font--huge"
+                        :class="[ intMod < 0 ? 'dangerRed' : '']">
                         {{ intMod }}
                     </div> 
                 </div>
@@ -76,7 +84,9 @@
                         {{ wisdom.base }}
                     </div>
                     <span class="font--huge">/</span>
-                    <div class="charStats__mod font--huge">
+                    <div 
+                        class="charStats__mod font--huge"
+                        :class="[ wisMod < 0 ? 'dangerRed' : '']">
                         {{ wisMod }}
                     </div> 
                 </div>
@@ -92,7 +102,9 @@
                         {{ charism.base }}
                     </div>
                     <span class="font--huge">/</span>
-                    <div class="charStats__mod font--huge">
+                    <div 
+                        class="charStats__mod font--huge"
+                        :class="[ chaMod < 0 ? 'dangerRed' : '']">
                         {{ chaMod }}
                     </div> 
                 </div>
@@ -105,25 +117,25 @@
         </div>
         
         <section class="charStats__HpSection">
-            <div class="charStats__HpCounter">
-                <h6 class="charStats__maxHp">HP: {{ hp + tempHp }} / {{ maxHp }}</h6>
-                <div>
-                    <input type="number" placeholder="DMG taken" v-model="hpValue">
-                    <button @click="changeHP('decrease')">DMG</button>    
-                    <button @click="changeHP('increase')">Heal</button>
-                </div> 
-            </div>
-            
             <div class="charStats__HpBar">
-                <div class="charStats__HpBar--outer"></div>
                 <div class="charStats__HpBar--inner" :style="{ width: `${healthPercentage}` + '%'}"></div>
                 <div class="charStats__HpBar--overheal" :style="{ width: `${tempHealthPercentage}` + '%'}"></div>
+                <span class="charStats__HpBar--numbers">{{ hp + tempHp }} / {{ maxHp }}</span>
+            </div>
+            <div class="charStats__HpBox">
+                <input type="number" placeholder="Amount of Heal / DMG" v-model="hpValue" class="charStats__HpValueInput">
+                <div class="charStats__HpButtonBox">
+                    <button class="charStats__HpButton dangerRed" @click="changeHP('decrease')">DMG</button>    
+                    <button class="charStats__HpButton healthyGreen" @click="changeHP('increase')">Heal</button> 
+                </div>
+                
+            </div>
+            <div class="charStats__tempHp flex__Column">
+                <input type="number" v-model="tempHpAdd" class="charStats__tempInput">
+                <button @click="updateTempHP()">add temp HP</button>
             </div>
             
-        
-            <input type="number" v-model="tempHPAdd" class="charStats__tempInput">
-            <button @click="updateTempHP()">add temp HP</button>
-            <div>Initiative: {{ initiative }}</div>
+            <div>Initiative: {{ initiativ + dexMod }}</div>
         </section>
        
     </section>
@@ -140,10 +152,9 @@
             return {
                 maxHp: 25,
                 hp: 25,
-                hpValue: 0,
+                hpValue: '',
                 tempHp: 0,
-                tempHPAdd: 0,
-                initiative: 2,
+                tempHpAdd: 0,
             };
         },
         computed: {
@@ -154,6 +165,7 @@
                 'intelligence',
                 'wisdom',
                 'charism',
+                'initiativ',
             ]),
             ...mapGetters('attributes', [
                 'strMod',
@@ -163,7 +175,6 @@
                 'wisMod',
                 'chaMod',
             ]),
-
             healthPercentage() {
                 return Math.min((this.hp / this.maxHp) * 100, 100);
             },
@@ -199,7 +210,7 @@
                 }
             },
             updateTempHP() {
-                this.tempHp = this.tempHp + this.tempHPAdd;
+                this.tempHp = this.tempHp + this.tempHpAdd;
             }
         },
     }

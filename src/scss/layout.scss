@@ -55,3 +55,14 @@ body {
     border: map-get($layoutBorder, border);
     border-radius: map-get($layoutBorder, border-radius);
 }
+
+.flex {
+    &__Column {
+        display: flex;
+        flex-direction: column;
+    }
+    &__Row {
+        display: flex;
+        flex-direction: row;
+    }
+}

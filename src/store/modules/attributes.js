@@ -31,6 +31,7 @@ const attributes = {
             base: 10,
             mod: 0,
         },
+        initiativ: 0,
     },
     getters: {
         strMod(state) {

@@ -1,0 +1,17 @@
+@import './colors.scss';
+
+.charSkills {
+    &__proficientcyBox {
+        display: flex;
+    }
+    &__checkBox {
+        width: 1rem;
+        height: 1rem;
+        background: $brightBasicBeige;
+        border: .1rem solid $darkBasicBeige;
+        margin-left: .25rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

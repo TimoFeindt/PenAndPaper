@@ -5,11 +5,20 @@
             <li v-for="skill in skills" :key="skill.name">
 
                 {{ skill.name }}: 
+                <hr>
+                <div class="charSkills__proficientcyBox"> 
+                    proficient: 
+                    <span class="charSkills__checkBox">
+                        <span
+                            v-if="skill.proficient"
+                            class="charSkills__checkMark">
+                            <CHECKMARK_ICON />
+                        </span>
+                    </span>
 
+                </div>
                 <hr>
-                {{ attMod }}
-                <hr>
-                <button @click="attMod(2)">CLICK</button>
+                <button>CLICK</button>
                 <hr>
                 <span v-if="skill.attrModName === 'str'">
                     {{ strMod }}
@@ -35,11 +44,17 @@
         </ul>
     </section>
 </template>
-  
+<style>
+    @import '../scss/charSkills.css';
+</style>
 <script>
-import { mapGetters } from 'vuex';
+    import { mapGetters } from 'vuex';
+    import CHECKMARK_ICON from '../assets/icons/checkMark'
     export default {
         name: 'char-skills',
+        components: {
+            CHECKMARK_ICON,
+        },
         data() {
             return {
                 attMod: 0,
@@ -296,7 +311,7 @@ import { mapGetters } from 'vuex';
             attMod() {
                 return ( 
                         this.skill.attrModName === 'str' ?  
-                            this.strMod  : 
+                            this.strMod : 
                         this.skill.attrModName === 'dex' ?  
                             this.dexMod :
                         this.skill.attrModName === 'con' ?  
